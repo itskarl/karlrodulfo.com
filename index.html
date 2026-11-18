@@ -88,18 +88,15 @@
   .btn:hover { transform: translate(-3px, -3px); box-shadow: 3px 3px 0 var(--fg); }
   .btn.primary:hover { box-shadow: 3px 3px 0 var(--fg); }
 
-  /* Marquee */
-  .marquee {
-    background: var(--accent); color: var(--accent-ink);
-    overflow: hidden; white-space: nowrap; border-block: 2px solid var(--accent);
-  }
-  .marquee-track { display: inline-flex; animation: scroll 32s linear infinite; }
-  .marquee span {
-    font-weight: 900; font-stretch: 125%; text-transform: uppercase;
-    font-size: clamp(20px, 2.6vw, 34px); padding: 14px 0; letter-spacing: -.01em;
-  }
-  .marquee span::after { content: "✱"; margin: 0 .8em; }
-  @keyframes scroll { to { transform: translateX(-50%); } }
+  /* Info strip */
+  .info { border-block: 1px solid var(--line); }
+  .info dl { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .info div { padding: 22px 24px 24px; border-left: 1px solid var(--line); }
+  .info div:first-child { border-left: none; padding-left: 0; }
+  .info dt { color: var(--muted); margin-bottom: 8px; }
+  .info dd { font-weight: 700; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.3; }
+  .info .status { display: inline-flex; align-items: center; gap: 10px; }
+  .info .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; }
 
   /* Sections */
   section { padding: clamp(72px, 10vw, 140px) 0; border-bottom: 1px solid var(--line); }
@@ -202,6 +199,9 @@
   .reveal.in { opacity: 1; transform: none; }
 
   @media (max-width: 900px) {
+    .info dl { grid-template-columns: 1fr 1fr; }
+    .info div:nth-child(3) { border-left: none; padding-left: 0; }
+    .info div:nth-child(n+3) { border-top: 1px solid var(--line); }
     .hero-foot, .project, .role { grid-template-columns: 1fr; }
     .cta { justify-content: flex-start; }
     .project { gap: 16px; }
@@ -214,6 +214,9 @@
     .stat, .stat + .stat { padding: 24px 0; border-left: none; border-bottom: 1px solid var(--line); }
   }
   @media (max-width: 560px) {
+    .info dl { grid-template-columns: 1fr; }
+    .info div { border-left: none; padding: 16px 0; }
+    .info div + div { border-top: 1px solid var(--line); }
     nav ul li:not(:last-child) { display: none; }
     h1 .outline { -webkit-text-stroke-width: 1.5px; }
     .role li { font-size: 18px; }
@@ -255,10 +258,14 @@
     </div>
   </header>
 
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Design systems</span><span>Design tokens</span><span>Theming</span><span>Prototyping tools</span><span>MCP servers</span><span>Agent skills</span><span>Design to code</span>
-      <span>Design systems</span><span>Design tokens</span><span>Theming</span><span>Prototyping tools</span><span>MCP servers</span><span>Agent skills</span><span>Design to code</span>
+  <div class="info" aria-label="At a glance">
+    <div class="wrap">
+      <dl>
+        <div><dt class="mono">Focus</dt><dd>Design systems &amp; AI tooling</dd></div>
+        <div><dt class="mono">Stack</dt><dd>React · TypeScript · Tokens</dd></div>
+        <div><dt class="mono">Latest</dt><dd>Rosetta MCP at Squarespace</dd></div>
+        <div><dt class="mono">Status</dt><dd class="status">Open to new roles</dd></div>
+      </dl>
     </div>
   </div>
 
