@@ -157,6 +157,11 @@
   /* Experience */
   .role { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; border-top: 2px solid var(--fg); padding-top: 32px; }
   .role h3 { font-weight: 900; font-stretch: 125%; text-transform: uppercase; font-size: clamp(32px, 4vw, 56px); line-height: .95; letter-spacing: -.03em; }
+  .co-link { text-decoration: none; display: inline-flex; align-items: flex-start; gap: .15em; transition: color .15s; }
+  .co-link:hover { color: var(--accent); }
+  .co-arrow { font-size: .45em; color: var(--accent); margin-top: .1em; transition: transform .2s; }
+  .co-link:hover .co-arrow { transform: translate(3px, -3px); }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .role .title { color: var(--accent); margin-top: 12px; }
   .role ul { list-style: none; }
   .role li { padding: 18px 0 18px 36px; border-bottom: 1px solid var(--line); position: relative; font-size: 20px; line-height: 1.4; }
@@ -355,7 +360,7 @@
         <div class="role reveal">
           <div>
             <p class="dates mono">2021 — 2026</p>
-            <h3>Squarespace</h3>
+            <h3><a class="co-link" href="https://www.squarespace.com" target="_blank" rel="noopener">Squarespace<span class="co-arrow" aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a></h3>
             <p class="title mono">Senior Software Engineer</p>
           </div>
           <ul>
@@ -369,7 +374,7 @@
         <div class="role reveal">
           <div>
             <p class="dates mono">2019 — 2021</p>
-            <h3>Gooten</h3>
+            <h3><a class="co-link" href="https://www.gooten.com" target="_blank" rel="noopener">Gooten<span class="co-arrow" aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a></h3>
             <p class="title mono">Front End Developer</p>
           </div>
           <ul>
@@ -380,7 +385,7 @@
         <div class="role reveal">
           <div>
             <p class="dates mono">2018 — 2019</p>
-            <h3>Unpakt</h3>
+            <h3><a class="co-link" href="https://www.unpakt.com" target="_blank" rel="noopener">Unpakt<span class="co-arrow" aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a></h3>
             <p class="title mono">Front End Developer</p>
           </div>
           <ul>
