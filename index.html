@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karl Rodulfo — Design Engineer</title>
+<meta name="description" content="Karl Rodulfo is a design engineer who builds design systems and the AI tooling that puts them in the hands of engineers and agents.">
+<meta property="og:title" content="Karl Rodulfo — Design Engineer">
+<meta property="og:description" content="Design systems, design-to-code tooling, and AI agents that build on-system.">
+<meta property="og:url" content="https://karlrodulfo.com">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23d4ff00'/><text x='32' y='44' font-family='Arial Black,Arial' font-weight='900' font-size='30' text-anchor='middle' fill='%230a0a0a'>KR</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --fg: #f4f4f0;
+    --muted: #9a9a94;
+    --line: #2a2a28;
+    --accent: #d4ff00;
+    --accent-ink: #0a0a0a;
+    --gutter: clamp(16px, 4vw, 56px);
+    --max: 1440px;
+    --display: "Archivo", "Arial Black", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--display);
+    font-stretch: 100%;
+    font-size: 18px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .mono { font-family: var(--mono); font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .mark {
+    font-weight: 900; font-stretch: 125%; font-size: 18px; text-decoration: none;
+    background: var(--accent); color: var(--accent-ink); padding: 4px 8px; line-height: 1;
+  }
+  nav ul { display: flex; gap: clamp(16px, 3vw, 36px); list-style: none; }
+  nav ul a { text-decoration: none; color: var(--muted); transition: color .15s; }
+  nav ul a:hover { color: var(--fg); }
+
+  /* Hero */
+  .hero { padding: clamp(56px, 10vw, 140px) 0 clamp(40px, 6vw, 80px); }
+  .hero .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--muted); margin-bottom: clamp(20px, 3vw, 36px); }
+  .dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: .35; } }
+  h1 {
+    font-weight: 900; font-stretch: 125%;
+    font-size: clamp(44px, 13.5vw, 210px);
+    line-height: .86; letter-spacing: -.035em; text-transform: uppercase;
+  }
+  h1 .outline { color: transparent; -webkit-text-stroke: 2px var(--fg); }
+  .hero-foot {
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: end;
+    margin-top: clamp(32px, 5vw, 64px);
+  }
+  .lede { font-size: clamp(22px, 2.6vw, 36px); line-height: 1.2; font-weight: 500; max-width: 22ch; }
+  .lede em { font-style: normal; color: var(--accent); }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 22px; text-decoration: none; font-weight: 700; font-size: 16px;
+    border: 2px solid var(--fg); transition: transform .15s, background .15s, color .15s;
+  }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .btn:hover { transform: translate(-3px, -3px); box-shadow: 3px 3px 0 var(--fg); }
+  .btn.primary:hover { box-shadow: 3px 3px 0 var(--fg); }
+
+  /* Marquee */
+  .marquee {
+    background: var(--accent); color: var(--accent-ink);
+    overflow: hidden; white-space: nowrap; border-block: 2px solid var(--accent);
+  }
+  .marquee-track { display: inline-flex; animation: scroll 32s linear infinite; }
+  .marquee span {
+    font-weight: 900; font-stretch: 125%; text-transform: uppercase;
+    font-size: clamp(20px, 2.6vw, 34px); padding: 14px 0; letter-spacing: -.01em;
+  }
+  .marquee span::after { content: "✱"; margin: 0 .8em; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  /* Sections */
+  section { padding: clamp(72px, 10vw, 140px) 0; border-bottom: 1px solid var(--line); }
+  .sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: clamp(40px, 6vw, 72px); flex-wrap: wrap; }
+  h2 {
+    font-weight: 900; font-stretch: 125%; text-transform: uppercase;
+    font-size: clamp(40px, 7vw, 104px); line-height: .9; letter-spacing: -.03em;
+  }
+  .sec-head .mono { color: var(--muted); }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--fg); }
+  .stat { padding: 28px 24px 0 0; }
+  .stat + .stat { padding-left: 24px; border-left: 1px solid var(--line); }
+  .stat b {
+    display: block; font-weight: 900; font-stretch: 125%;
+    font-size: clamp(56px, 8vw, 120px); line-height: 1; letter-spacing: -.04em; color: var(--accent);
+  }
+  .stat p { color: var(--muted); margin-top: 12px; max-width: 26ch; }
+
+  /* Work */
+  .work { display: grid; gap: 0; border-top: 2px solid var(--fg); }
+  .project {
+    display: grid; grid-template-columns: 80px 1.2fr 1fr; gap: 32px;
+    padding: clamp(28px, 4vw, 48px) 0; border-bottom: 1px solid var(--line);
+    position: relative; transition: background .2s;
+  }
+  .project::before {
+    content: ""; position: absolute; inset: 0 calc(-1 * var(--gutter)); z-index: -1;
+    background: var(--fg); transform: scaleY(0); transform-origin: bottom; transition: transform .3s cubic-bezier(.2,.8,.2,1);
+  }
+  .project:hover::before { transform: scaleY(1); }
+  .project:hover { color: var(--bg); }
+  .project:hover .num, .project:hover .project-body p, .project:hover .tags li { color: var(--bg); border-color: var(--bg); }
+  .num { color: var(--muted); padding-top: 10px; }
+  .project h3 {
+    font-weight: 900; font-stretch: 112%; text-transform: uppercase;
+    font-size: clamp(30px, 4.2vw, 60px); line-height: .95; letter-spacing: -.025em;
+  }
+  .project h3 small { display: block; font-family: var(--mono); font-size: 13px; font-weight: 400; letter-spacing: .04em; margin-top: 14px; color: var(--accent); }
+  .project:hover h3 small { color: var(--bg); }
+  .project-body p { color: #c9c9c3; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin-top: 20px; }
+  .tags li { border: 1px solid var(--line); padding: 5px 10px; color: var(--muted); }
+
+  /* Approach */
+  .approach { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line); border: 2px solid var(--line); }
+  .card { background: var(--bg); padding: clamp(28px, 3vw, 44px); min-height: 340px; display: flex; flex-direction: column; }
+  .card .mono { color: var(--accent); }
+  .card h3 { font-weight: 800; font-stretch: 112%; font-size: clamp(26px, 2.4vw, 36px); line-height: 1.05; margin: auto 0 16px; padding-top: 48px; letter-spacing: -.015em; }
+  .card p { color: var(--muted); }
+  .card.inverse { background: var(--accent); color: var(--accent-ink); }
+  .card.inverse .mono, .card.inverse p { color: var(--accent-ink); }
+
+  /* Experience */
+  .role { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; border-top: 2px solid var(--fg); padding-top: 32px; }
+  .role h3 { font-weight: 900; font-stretch: 125%; text-transform: uppercase; font-size: clamp(32px, 4vw, 56px); line-height: .95; letter-spacing: -.03em; }
+  .role .title { color: var(--accent); margin-top: 12px; }
+  .role ul { list-style: none; }
+  .role li { padding: 18px 0 18px 36px; border-bottom: 1px solid var(--line); position: relative; font-size: 20px; line-height: 1.4; }
+  .role li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .role li:first-child { padding-top: 0; }
+  .toolkit { margin-top: clamp(56px, 7vw, 96px); }
+  .toolkit .mono { color: var(--muted); display: block; margin-bottom: 20px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
+  .chips li { font-weight: 700; font-size: clamp(18px, 1.8vw, 24px); padding: 10px 18px; border: 2px solid var(--fg); }
+  .chips li:nth-child(4n+1) { background: var(--fg); color: var(--bg); }
+
+  /* Contact */
+  .contact { padding: clamp(96px, 14vw, 200px) 0 clamp(56px, 8vw, 96px); border-bottom: none; }
+  .contact h2 { font-size: clamp(56px, 13vw, 200px); line-height: .85; }
+  .contact h2 a { text-decoration: none; display: inline-block; transition: color .15s; }
+  .contact h2 a:hover { color: var(--accent); }
+  .contact h2 .arrow { display: inline-block; color: var(--accent); transition: transform .2s; }
+  .contact h2 a:hover .arrow { transform: translate(12px, -12px); }
+  .links { display: flex; gap: clamp(20px, 4vw, 48px); flex-wrap: wrap; margin-top: clamp(40px, 6vw, 72px); }
+  .links a { text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 4px; }
+  .links a:hover { color: var(--accent); }
+
+  footer { border-top: 1px solid var(--line); padding: 24px 0; color: var(--muted); }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .hero-foot, .project, .role { grid-template-columns: 1fr; }
+    .cta { justify-content: flex-start; }
+    .project { gap: 16px; }
+    .num { padding-top: 0; }
+    .approach { grid-template-columns: 1fr; }
+    .card { min-height: 0; }
+    .stats { grid-template-columns: 1fr; }
+    .stat, .stat + .stat { padding: 24px 0; border-left: none; border-bottom: 1px solid var(--line); }
+  }
+  @media (max-width: 560px) {
+    nav ul li:not(:last-child) { display: none; }
+    h1 .outline { -webkit-text-stroke-width: 1.5px; }
+    .role li { font-size: 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Karl Rodulfo, home">KR</a>
+    <ul class="mono">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow mono"><span class="dot" aria-hidden="true"></span>Design Engineer</p>
+      <h1>Karl<br><span class="outline">Rodulfo</span></h1>
+      <div class="hero-foot">
+        <p class="lede">I build design systems and the tools that put them in the hands of <em>engineers and AI agents.</em></p>
+        <div class="cta">
+          <a class="btn primary" href="#work">See the work ↓</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Design systems</span><span>Design tokens</span><span>Theming</span><span>Prototyping tools</span><span>MCP servers</span><span>Agent skills</span><span>Design to code</span>
+      <span>Design systems</span><span>Design tokens</span><span>Theming</span><span>Prototyping tools</span><span>MCP servers</span><span>Agent skills</span><span>Design to code</span>
+    </div>
+  </div>
+
+  <section aria-label="Impact">
+    <div class="wrap">
+      <div class="stats reveal">
+        <div class="stat"><b>120+</b><p>engineers building with Rosetta, Squarespace's design system</p></div>
+        <div class="stat"><b>100+</b><p>engineers onboarded to agent tooling that builds on-system</p></div>
+        <div class="stat"><b>0</b><p>handoffs needed when design and code live in the same place</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Selected<br>work</h2>
+        <span class="mono">03 projects · Squarespace</span>
+      </div>
+      <div class="work">
+        <article class="project reveal">
+          <span class="num mono">01</span>
+          <h3>Rosetta Design System<small>Components · Tokens · Theming</small></h3>
+          <div class="project-body">
+            <p>I was part of the team behind Rosetta, Squarespace's design system, used by 120+ engineers. I built components on design tokens and theming, working side by side with designers in Figma so the system in code matched the system in design.</p>
+            <ul class="tags mono"><li>React</li><li>Design tokens</li><li>Theming</li><li>Figma</li></ul>
+          </div>
+        </article>
+        <article class="project reveal">
+          <span class="num mono">02</span>
+          <h3>On-System Prototyping<small>Figma Make × Rosetta</small></h3>
+          <div class="project-body">
+            <p>I built a prototyping tool that combines Figma Make with Rosetta, so designers' ideas become working prototypes made from real production components instead of mockups that drift from the system.</p>
+            <ul class="tags mono"><li>Figma Make</li><li>Prototyping</li><li>Design to code</li></ul>
+          </div>
+        </article>
+        <article class="project reveal">
+          <span class="num mono">03</span>
+          <h3>Rosetta MCP &amp; Agent Skills<small>AI tooling · Adoption</small></h3>
+          <div class="project-body">
+            <p>When AI coding tools took off, I built an MCP server and agent skills that give agents access to Rosetta's components and standards, so generated code lands on-system. Then I helped 100+ engineers adopt it.</p>
+            <ul class="tags mono"><li>MCP</li><li>Agent skills</li><li>Claude Code</li><li>Cursor</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>How I<br>work</h2>
+        <span class="mono">Principles</span>
+      </div>
+      <div class="approach reveal">
+        <div class="card">
+          <span class="mono">01 / In code</span>
+          <h3>Close to design, in code.</h3>
+          <p>The old handoff model is breaking down. I work in the space between design and engineering, where ideas turn into real components.</p>
+        </div>
+        <div class="card inverse">
+          <span class="mono">02 / With AI</span>
+          <h3>AI is part of the toolkit.</h3>
+          <p>Claude Code and Cursor are part of how I ship every day. I build the tools that help agents follow the system instead of fighting it.</p>
+        </div>
+        <div class="card">
+          <span class="mono">03 / In the details</span>
+          <h3>The last few pixels matter.</h3>
+          <p>A token that doesn't quite map. A few pixels of drift. Small things decide whether an interface feels right, so I care about them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Experience</h2>
+      </div>
+      <div class="role reveal">
+        <div>
+          <h3>Squarespace</h3>
+          <p class="title mono">Design Engineer · Design Systems</p>
+        </div>
+        <ul>
+          <li>Built components on design tokens and theming for Rosetta, used by 120+ engineers.</li>
+          <li>Worked side by side with designers in Figma to keep design and code in sync.</li>
+          <li>Built a prototyping tool combining Figma Make with Rosetta for on-system prototypes.</li>
+          <li>Built an MCP server and agent skills exposing Rosetta's components and standards to AI agents.</li>
+          <li>Led adoption of the agent tooling across 100+ engineers.</li>
+        </ul>
+      </div>
+      <div class="toolkit reveal">
+        <span class="mono">Toolkit</span>
+        <ul class="chips">
+          <li>Design systems</li><li>Design tokens</li><li>Theming</li><li>React</li>
+          <li>Figma</li><li>Figma Make</li><li>MCP</li><li>Agent skills</li>
+          <li>Claude Code</li><li>Cursor</li><li>Prototyping</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="mono" style="color:var(--muted);margin-bottom:24px">Open to design engineering roles</p>
+      <h2><a href="mailto:karlrodulfo@gmail.com">Let's<br>build <span class="arrow">↗</span></a></h2>
+      <div class="links mono">
+        <a href="mailto:karlrodulfo@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/karlrodulfo" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/itskarl" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap mono">
+    <span>© <span id="yr">2026</span> Karl Rodulfo</span>
+    <span>Built in code, close to design.</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
+  } else {
+    els.forEach(el => el.classList.add('in'));
+  }
+</script>
+</body>
+</html>
