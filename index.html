@@ -379,6 +379,10 @@
     .info dl > div + div { border-top: 1px solid var(--line); }
     nav ul li:not(:last-child) { display: none; }
     h1 .outline { -webkit-text-stroke-width: 1.5px; }
+    /* Phones: name breaks onto two lines, sized so "Rodulfo" fills the width */
+    h1 { font-size: calc((100vw - 2 * var(--gutter)) / 6.6); font-size: calc(100cqi / 6.5); }
+    [data-theme="soft"] h1 { font-size: calc((100vw - 2 * var(--gutter)) / 3.7); font-size: calc(100cqi / 3.6); }
+    h1 .outline { display: block; width: fit-content; }
     .role li { font-size: 18px; }
     .stats { grid-template-columns: 1fr; }
   }
