@@ -164,6 +164,20 @@
   }
   .sec-head .mono { color: var(--muted); }
 
+  /* Where I've worked */
+  .worked { padding: clamp(28px, 4vw, 48px) 0; }
+  .worked .wrap { display: grid; gap: 18px; }
+  .worked-label { color: var(--muted); }
+  .worked-list { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); container-type: inline-size; }
+  .worked-list li {
+    font-weight: 800; font-stretch: 125%; text-transform: uppercase; letter-spacing: -.02em;
+    font-size: clamp(14px, 1.5vw, 22px); font-size: min(28px, calc((25cqi - 24px) / 10.2)); line-height: 1; color: var(--muted);
+    white-space: nowrap;
+    padding: 10px 0 10px 24px; border-left: 1px solid var(--line); transition: color .2s;
+  }
+  .worked-list li:hover { color: var(--fg); }
+  .worked-list li:first-child { border-left: none; padding-left: 0; }
+
   /* Work */
   .work { display: grid; gap: clamp(48px, 6vw, 88px); }
   .work-group { border-top: 2px solid var(--fg); }
@@ -324,6 +338,7 @@
 
   [data-theme="soft"] .work-group { border-top-width: 1px; border-top-color: var(--line); }
   [data-theme="soft"] .group-label::before { border-radius: 50%; }
+  [data-theme="soft"] .worked-list li { font-stretch: 100%; font-weight: 700; text-transform: none; letter-spacing: -.03em; font-size: clamp(18px, 2vw, 28px); font-size: min(32px, calc((25cqi - 24px) / 6.6)); }
   [data-theme="soft"] .role { border-top: 1px solid var(--line); }
 
   /* Work rows lift onto a soft card instead of inverting */
@@ -357,6 +372,9 @@
   [data-theme="soft"] .tool-groups .chips li { font-size: clamp(15px, 1.3vw, 17px); }
 
   @media (max-width: 900px) {
+    .worked-list { display: flex; flex-wrap: wrap; gap: 12px 32px; }
+    .worked-list li { border-left: none; padding: 0; font-size: 22px; }
+    [data-theme="soft"] .worked-list li { font-size: 26px; }
     .info dl { grid-template-columns: 1fr 1fr; }
     .info dl > div:nth-child(3) { border-left: none; padding-left: 0; }
     .info dl > div:nth-child(n+3) { border-top: 1px solid var(--line); }
@@ -369,6 +387,9 @@
     .edu-grid, .tool-groups { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
+    .worked-list { gap: 12px 28px; }
+    .worked-list li { font-size: 19px; }
+    [data-theme="soft"] .worked-list li { font-size: 23px; }
     .info dl { grid-template-columns: 1fr; }
     .info dl > div { border-left: none; padding: 16px 0; }
     .info dl > div + div { border-top: 1px solid var(--line); }
@@ -432,6 +453,18 @@
       </dl>
     </div>
   </div>
+
+  <section class="worked" aria-labelledby="worked-label">
+    <div class="wrap">
+      <p class="worked-label mono" id="worked-label">Where I've worked</p>
+      <ul class="worked-list stagger" style="--step:80ms">
+        <li>Squarespace</li>
+        <li>Gooten</li>
+        <li>Unpakt</li>
+        <li>Discovery</li>
+      </ul>
+    </div>
+  </section>
 
   <section id="work">
     <div class="wrap">
