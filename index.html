@@ -113,9 +113,13 @@
   @keyframes pulse { 50% { opacity: .35; } }
   h1 {
     font-weight: 900; font-stretch: 125%;
-    font-size: clamp(44px, 13.5vw, 210px);
+    font-size: calc((100vw - 2 * var(--gutter)) / 10.4);
+    font-size: calc(100cqi / 10.2);
     line-height: .86; letter-spacing: -.035em; text-transform: uppercase;
+    white-space: nowrap;
   }
+  /* The name spans the content width on one line in both themes */
+  .hero .wrap { container-type: inline-size; }
   h1 .outline {
     color: transparent; -webkit-text-stroke: 2px var(--fg);
     background: linear-gradient(var(--accent), var(--accent)) 0 0 / 0% 100% no-repeat;
@@ -299,7 +303,7 @@
   [data-theme="soft"] .role h3, [data-theme="soft"] .card h3 {
     font-stretch: 100%; font-weight: 700; text-transform: none; letter-spacing: -.035em;
   }
-  [data-theme="soft"] h1 { font-size: clamp(44px, 11.5vw, 176px); line-height: .95; }
+  [data-theme="soft"] h1 { font-size: calc((100vw - 2 * var(--gutter)) / 5.8); font-size: calc(100cqi / 5.65); line-height: .95; }
   [data-theme="soft"] h1 .outline {
     -webkit-text-stroke: 0; color: transparent;
     background-image: linear-gradient(90deg, var(--accent), var(--accent-2)), linear-gradient(var(--muted), var(--muted));
@@ -409,7 +413,7 @@
   <header class="hero">
     <div class="wrap">
       <p class="eyebrow mono intro"><span class="dot" aria-hidden="true"></span>Design Systems Engineer · New York</p>
-      <h1 class="split">Karl<br><span class="outline">Rodulfo</span></h1>
+      <h1 class="split">Karl <span class="outline">Rodulfo</span></h1>
       <div class="hero-foot">
         <p class="lede intro" style="--d:.7s">I build design systems and the tools that put them in the hands of <em>engineers and AI agents.</em></p>
         <div class="cta intro" style="--d:.82s">
