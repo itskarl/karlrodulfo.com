@@ -201,7 +201,8 @@
   .group-count { color: var(--muted); padding-bottom: 4px; }
   .nowrap { white-space: nowrap; }
   .project {
-    display: grid; grid-template-columns: 80px 1.2fr 1fr; gap: 32px;
+    /* Same columns on every row: number, title (narrower), description (wider) */
+    display: grid; grid-template-columns: 56px minmax(0, 1fr) minmax(0, 1.35fr); gap: clamp(20px, 3vw, 40px);
     padding: clamp(28px, 4vw, 48px) 0; border-bottom: 1px solid var(--line);
     position: relative; transition: background .2s;
   }
@@ -221,7 +222,7 @@
   .project:hover .num { color: var(--accent); }
   .project h4 {
     font-weight: 900; font-stretch: 112%; text-transform: uppercase;
-    font-size: clamp(30px, 4.2vw, 60px); line-height: .95; letter-spacing: -.025em;
+    font-size: clamp(26px, 2.7vw, 40px); line-height: .98; letter-spacing: -.025em;
     transition: transform .4s cubic-bezier(.16,1,.3,1);
   }
   .project:hover h4 { transform: translateX(8px); }
@@ -336,7 +337,7 @@
   }
   [data-theme="soft"] h1:hover .outline { background-size: 100% 100%, 100% 100%; }
   [data-theme="soft"] h2 { font-size: clamp(36px, 6vw, 88px); line-height: 1; }
-  [data-theme="soft"] .project h4 { font-size: clamp(28px, 3.6vw, 52px); line-height: 1.02; }
+  [data-theme="soft"] .project h4 { font-size: clamp(26px, 2.6vw, 40px); line-height: 1.05; }
   [data-theme="soft"] .role h3 { font-size: clamp(30px, 3.6vw, 50px); line-height: 1; }
   [data-theme="soft"] .mono { letter-spacing: .06em; }
 
