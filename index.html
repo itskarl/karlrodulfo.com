@@ -221,6 +221,7 @@
   .project-body p { color: var(--body); }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin-top: 20px; }
   .tags li { border: 1px solid var(--line); padding: 5px 10px; color: var(--muted); }
+  .project-body code { font-family: var(--mono); font-size: .85em; }
   .project-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 24px; }
   .project-body .project-links { color: var(--fg); }
   .project-links a { text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 3px; position: relative; z-index: 1; }
@@ -441,7 +442,7 @@
       <dl>
         <div><dt class="mono">Focus</dt><dd>Design systems &amp; AI tooling</dd></div>
         <div><dt class="mono">Stack</dt><dd>React · TypeScript · Storybook</dd></div>
-        <div><dt class="mono">Latest</dt><dd><a class="glance-link" href="#work">Agent Activity Kit, open source</a></dd></div>
+        <div><dt class="mono">Latest</dt><dd><a class="glance-link" href="#work">Easing Lab, open source</a></dd></div>
         <div><dt class="mono">Status</dt><dd class="status">Open to new roles</dd></div>
       </dl>
     </div>
@@ -463,13 +464,13 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <h2 class="split">Selected<br>work</h2>
-        <span class="mono">07 projects · Squarespace &amp; open source</span>
+        <span class="mono">08 projects · Squarespace &amp; open source</span>
       </div>
       <div class="work">
         <div class="work-group" role="group" aria-labelledby="group-oss">
           <div class="group-head reveal">
             <p class="group-label mono" id="group-oss">Open source</p>
-            <span class="group-count mono">01 project</span>
+            <span class="group-count mono">02 projects</span>
           </div>
           <article class="project reveal">
             <span class="num mono">01</span>
@@ -480,6 +481,15 @@
               <p class="project-links mono"><a href="https://agent-activity-kit.vercel.app" target="_blank" rel="noopener">Live demo<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (opens in a new tab)</span></a><a href="https://github.com/itskarl/agent-activity-kit" target="_blank" rel="noopener">Source<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (opens in a new tab)</span></a></p>
             </div>
           </article>
+          <article class="project reveal">
+            <span class="num mono">02</span>
+            <h3>Easing Lab<small>Open source · Motion · Tooling</small></h3>
+            <div class="project-body">
+              <p>A precision tool for motion. Shape a cubic Bézier curve or a spring and watch it drive real interface patterns side by side: a modal, a toast, a list reorder, a drawer. Pin a second curve to compare, then export to CSS, Motion, the Web Animations API or design tokens. Springs compile to plain CSS through <code>linear()</code>, and every preview runs the exact string you copy.</p>
+              <ul class="tags mono"><li>React</li><li>TypeScript</li><li>Web Animations</li><li>Design tokens</li></ul>
+              <p class="project-links mono"><a href="https://easing-lab.vercel.app" target="_blank" rel="noopener">Try it<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (opens in a new tab)</span></a><a href="https://github.com/itskarl/easing-lab" target="_blank" rel="noopener">Source<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (opens in a new tab)</span></a></p>
+            </div>
+          </article>
         </div>
 
         <div class="work-group" role="group" aria-labelledby="group-sq">
@@ -488,7 +498,7 @@
             <span class="group-count mono">06 projects</span>
           </div>
           <article class="project reveal">
-            <span class="num mono">02</span>
+            <span class="num mono">03</span>
             <h3>Rosetta Design System<small>Components · Tokens · Theming</small></h3>
             <div class="project-body">
               <p>Core engineer on Squarespace's design system. I built and evolved 75+ accessible (WCAG 2.1), responsive, composable React components tuned for mobile web, built on design tokens and theming, and used by 120+ engineers across dozens of product surfaces.</p>
@@ -496,7 +506,7 @@
             </div>
           </article>
           <article class="project reveal">
-            <span class="num mono">03</span>
+            <span class="num mono">04</span>
             <h3>Rosetta MCP &amp; Agent Skills<small>AI tooling · Adoption</small></h3>
             <div class="project-body">
               <p>I built an MCP server and agent skills that give AI coding agents structured access to Rosetta's components, docs and standards, so generated code lands on-system. Then I drove adoption to 100+ engineers with docs, demos and a Slack support channel.</p>
@@ -504,7 +514,7 @@
             </div>
           </article>
           <article class="project reveal">
-            <span class="num mono">04</span>
+            <span class="num mono">05</span>
             <h3>Domain Forwarding<small>Product feature · Concept to launch</small></h3>
             <div class="project-body">
               <p>I owned Squarespace's Domain Forwarding feature from concept to launch in two months, part of the domain management buildout for moving 10 million domains over from Google Domains. I partnered with backend engineers on the API design and with designers on the implementation.</p>
@@ -512,7 +522,7 @@
             </div>
           </article>
           <article class="project reveal">
-            <span class="num mono">05</span>
+            <span class="num mono">06</span>
             <h3>CMS Form System<small>End-to-end ownership</small></h3>
             <div class="project-body">
               <p>I owned the CMS form fields update from start to finish: I led engineering on 8+ new accessible form components and rebuilt the form library as a composable system.</p>
@@ -520,7 +530,7 @@
             </div>
           </article>
           <article class="project reveal">
-            <span class="num mono">06</span>
+            <span class="num mono">07</span>
             <h3>Migration Tooling<small>Codemods · Releases</small></h3>
             <div class="project-body">
               <p>I built tooling and codemods that cut Rosetta version upgrades from quarters to sprints, backed by Percy visual regression tests and semver releases with changelogs, migration guides and deprecation warnings.</p>
@@ -528,7 +538,7 @@
             </div>
           </article>
           <article class="project reveal">
-            <span class="num mono">07</span>
+            <span class="num mono">08</span>
             <h3>Design to Code<small>Figma API · Figma MCP · Figma Make</small></h3>
             <div class="project-body">
               <p>I work closely with designers to turn Figma designs, tokens and interaction patterns into production components. I also built a prototyping tool that pairs Figma Make with Rosetta, so prototypes are made from real components.</p>
